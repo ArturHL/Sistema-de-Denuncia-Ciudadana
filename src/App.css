@@ -1,0 +1,303 @@
+/* ===== VARIABLES CSS ===== */
+:root {
+  /* Colores institucionales */
+  --color-primario: #1e3a8a;
+  --color-primario-hover: #1e40af;
+  --color-primario-claro: #3b82f6;
+  --color-secundario: #64748b;
+  --color-secundario-claro: #94a3b8;
+
+  /* Colores de fondo */
+  --bg-principal: #f8fafc;
+  --bg-blanco: #ffffff;
+  --bg-gris-claro: #f1f5f9;
+  --bg-gris: #e2e8f0;
+
+  /* Colores de texto */
+  --texto-principal: #0f172a;
+  --texto-secundario: #475569;
+  --texto-gris: #64748b;
+
+  /* Colores de estados */
+  --color-exito: #16a34a;
+  --color-advertencia: #eab308;
+  --color-peligro: #dc2626;
+  --color-info: #0284c7;
+
+  /* Prioridades */
+  --prioridad-baja: #16a34a;
+  --prioridad-media: #eab308;
+  --prioridad-alta: #f97316;
+  --prioridad-urgente: #dc2626;
+
+  /* Estados */
+  --estado-pendiente: #64748b;
+  --estado-revision: #0284c7;
+  --estado-investigacion: #eab308;
+  --estado-resuelta: #16a34a;
+
+  /* Espaciado */
+  --espaciado-xs: 0.25rem;
+  --espaciado-sm: 0.5rem;
+  --espaciado-md: 1rem;
+  --espaciado-lg: 1.5rem;
+  --espaciado-xl: 2rem;
+  --espaciado-2xl: 3rem;
+
+  /* Bordes */
+  --radio-borde: 8px;
+  --radio-borde-sm: 4px;
+  --radio-borde-lg: 12px;
+
+  /* Sombras */
+  --sombra-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --sombra-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --sombra-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --sombra-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Transiciones */
+  --transicion-rapida: 150ms ease-in-out;
+  --transicion-normal: 300ms ease-in-out;
+}
+
+/* ===== RESET Y BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-principal);
+  color: var(--texto-principal);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== APLICACIÓN ===== */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-primario-claro) 100%);
+  color: white;
+  padding: var(--espaciado-xl) var(--espaciado-md);
+  box-shadow: var(--sombra-lg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: var(--espaciado-lg);
+}
+
+.header-titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--espaciado-sm);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-subtitulo {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+/* ===== NAVEGACIÓN ===== */
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: var(--espaciado-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: var(--espaciado-md) var(--espaciado-xl);
+  border-radius: var(--radio-borde);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicion-normal);
+  backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-md);
+}
+
+.nav-btn.active {
+  background-color: white;
+  color: var(--color-primario);
+  border-color: white;
+}
+
+.nav-btn:active {
+  transform: translateY(0);
+}
+
+.nav-btn-logout {
+  background-color: rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+.nav-btn-logout:hover {
+  background-color: var(--color-peligro);
+  border-color: var(--color-peligro);
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+.main-content {
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--espaciado-2xl) var(--espaciado-md);
+  width: 100%;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background-color: var(--color-primario);
+  color: white;
+  padding: var(--espaciado-xl) var(--espaciado-md);
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer p {
+  margin-bottom: var(--espaciado-sm);
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+.footer p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== BADGES ===== */
+.badge {
+  display: inline-block;
+  padding: var(--espaciado-xs) var(--espaciado-md);
+  border-radius: var(--radio-borde-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Badges de Prioridad */
+.badge-prioridad-baja {
+  background-color: var(--prioridad-baja);
+  color: white;
+}
+
+.badge-prioridad-media {
+  background-color: var(--prioridad-media);
+  color: white;
+}
+
+.badge-prioridad-alta {
+  background-color: var(--prioridad-alta);
+  color: white;
+}
+
+.badge-prioridad-urgente {
+  background-color: var(--prioridad-urgente);
+  color: white;
+}
+
+/* Badges de Estado */
+.badge-estado-pendiente {
+  background-color: var(--estado-pendiente);
+  color: white;
+}
+
+.badge-estado-revision {
+  background-color: var(--estado-revision);
+  color: white;
+}
+
+.badge-estado-investigacion {
+  background-color: var(--estado-investigacion);
+  color: white;
+}
+
+.badge-estado-resuelta {
+  background-color: var(--estado-resuelta);
+  color: white;
+}
+
+/* ===== UTILIDADES ===== */
+.obligatorio {
+  color: var(--color-peligro);
+  font-weight: bold;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header-titulo {
+    font-size: 1.5rem;
+  }
+
+  .header-subtitulo {
+    font-size: 1rem;
+  }
+
+  .nav {
+    flex-direction: column;
+  }
+
+  .nav-btn {
+    width: 100%;
+  }
+
+  .main-content {
+    padding: var(--espaciado-lg) var(--espaciado-sm);
+  }
+
+  .footer {
+    padding: var(--espaciado-lg) var(--espaciado-sm);
+  }
+
+  .footer p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: var(--espaciado-lg) var(--espaciado-sm);
+  }
+
+  .header-titulo {
+    font-size: 1.25rem;
+  }
+
+  .header-subtitulo {
+    font-size: 0.9rem;
+  }
+}
